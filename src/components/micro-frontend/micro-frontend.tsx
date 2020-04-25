@@ -14,11 +14,12 @@ const MicroFrontendComponent: FC<MicroFrontendComponentProps> = ({ name, mf }) =
 
     return (
         <iframe
-            width='100%'
-            height='100%'
-            title={`${name}-micro-frontend`}
-            id={name} src={`${url}/index.html`}
-            frameBorder='0'
+          width='100%'
+          height='100%'
+          title={`${name}-micro-frontend`}
+          id={name}
+          src={`${url}/index.html`}
+          frameBorder='0'
         />
     );
 };
