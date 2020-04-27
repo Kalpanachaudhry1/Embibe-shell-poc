@@ -9,10 +9,10 @@ const App: FC<{}> = () => (
     <>
         <GlobalStyle />
         <Helmet
-          titleTemplate='CTS - %s'
-          defaultTitle='CTS'
+          titleTemplate='Embibe - %s'
+          defaultTitle='Embibe'
         >
-            <meta name='description' content='CMS for Aasaanjobs' />
+            <meta name='description' content='Embibe' />
         </Helmet>
         <ApolloProvider client={client}>
             <Routes />

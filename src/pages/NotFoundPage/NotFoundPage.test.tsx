@@ -25,8 +25,8 @@ describe('NotFoundPage', () => {
 
     it('should have a link to go back home', () => {
         const { getByText } = renderWithRouter(<NotFoundPage />);
-        const btnGoHome = getByText('Jobs page');
+        const btnGoHome = getByText('Ask page');
 
-        expect(btnGoHome).toHaveAttribute('href', '/jobs');
+        expect(btnGoHome).toHaveAttribute('href', '/ask');
     });
 });

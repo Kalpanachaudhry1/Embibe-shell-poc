@@ -25,8 +25,8 @@ const Sidebar: FC<AppLayoutInterface> = ({ selectedPath }) => (
           defaultSelectedKeys={[selectedPath]}
           selectedKeys={[selectedPath]}
         >
-            <Item key='/jobs'>
-                <Link to='/jobs' aria-label='link-to-jobs'>
+            <Item key='/ask'>
+                <Link to='/ask' aria-label='link-to-ask'>
                     <CoffeeOutlined />
                 </Link>
             </Item>

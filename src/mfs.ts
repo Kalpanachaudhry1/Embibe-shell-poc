@@ -1,9 +1,9 @@
 import { MicroFrontend } from './mf-contract';
 
 const MicroFrontends: Record<string, MicroFrontend> = {
-    MFJobs: {
-        url: '/mf-jobs',
-        path: '/jobs',
+    MFAsk: {
+        url: '/mf-ask',
+        path: '/ask',
     },
 };
 

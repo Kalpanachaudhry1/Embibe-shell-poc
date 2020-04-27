@@ -10,7 +10,7 @@ import MicroFrontendComponent from 'components/micro-frontend/micro-frontend';
 import Sidebar from 'components/PageSidebar/PageSidebar.component';
 import MFS from 'mfs';
 import NotFound from 'pages/NotFoundPage/NotFoundPage.component';
-import Sandbox from 'pages/Sandbox/Sandbox';
+// import Sandbox from 'pages/Sandbox/Sandbox';
 
 const Routes: FC<RouteComponentProps> = ({ location }) => (
     <Layout>
@@ -22,7 +22,7 @@ const Routes: FC<RouteComponentProps> = ({ location }) => (
                 {Object.keys(MFS).map((name) => (
                     <Route key={name} path={MFS[name].path}>
                         <MicroFrontendComponent name={name} mf={MFS[name]} />
-                        <Sandbox />
+                        {/* <Sandbox /> */}
                     </Route>
                 ))}
                 <Route component={NotFound} />

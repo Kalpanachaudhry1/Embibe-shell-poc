@@ -10,8 +10,8 @@ export const NotFoundPage: FC<{}> = () => (
     extra={
     (
       <Button type='primary'>
-        <Link to='/jobs'>
-          Jobs page
+        <Link to='/ask'>
+          Ask page
         </Link>
       </Button>
     )

@@ -18,7 +18,7 @@ const BrandContainer: FC<{}> = styled.div`
 
 const Brand: FC<{}> = () => (
     <BrandContainer>
-        <Link to='/'><Brandname level={4}>CTS</Brandname></Link>
+        <Link to='/'><Brandname level={4}>Embibe</Brandname></Link>
     </BrandContainer>
 );
 

@@ -12,7 +12,7 @@ const Sandbox: FC<{}> = () => {
 
   return (
     <>
-      <button type='button' onClick={() => broadcaster?.setCookie('name', 'Ameer')}>
+      <button type='button' onClick={() => broadcaster?.setCookie('name', 'Kalpana')}>
         Change cookie
       </button>
       <button type='button' onClick={() => broadcaster?.emit('MSG', 'hi')}>
