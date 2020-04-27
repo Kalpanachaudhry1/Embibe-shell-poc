@@ -1,44 +1,26 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+**Prerequisites:**
+- Install node v10 or above
+- Install local-web-server using npm
+`npm i -g local-web-server`
 
-In the project directory, you can run:
+Steps to run this:
 
-### `npm start`
+- Run the shell using `npm start`
+- Build micro-frontend ( https://github.com/Kalpanachaudhry1/Ask-micro-frontend ) using `npm run build`
+- cd to build folder in micro-frontend `cd build`
+- now run `mkdir mf-ask && mv * mf-ask`  ( This duplicates creating different folders in s3 bucket )
+- Serve the microfrontend using `ws --port 3001`
+- If you are serving on a different port update it on shell's `embibe-shell/src/setupProxy.js`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## How this POC works
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This micro-frontend architecture run on master slave. This is the master repo.
+Master Repo mostly contains common app shell ( For example, Authentication, headers or sidebars, Routings etc ).
+1. When shell initializes it fetch contracts found on `embibe-shell/src/mfs.ts`
+2. Contracts tells us on what route from where should we fetch index.html. path is the route on which iframe url is listed in url key.
+3. These are looped in `embibe-shell/src/pages/App/Routes.component.tsx` so that react router should know the routes upfront and SPA is entact.
+4. To handle iframes cross site policy and sync history and cookies easily created a proxy in `embibe-shell/src/setupProxy.js`. In simple terms iframe url for /ask is /mf-ask/index.html in mf.ts i.e. localhost:3000/mf-ask/index.html will be redirected to localhost:3001/mf-ask/index.html internally.
+5. The iframe can be found inside `components/micro-frontend/micro-frontend`
+6. there is a wrapper for post messaging between shell and micro frontend so that there are not too many connections to and fro which can be found at `embibe-shell/src/services/broadcaster.ts` same can be found at micro-frontends as well.
