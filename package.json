@@ -38,7 +38,7 @@
     "apollo-link": "^1.2.13",
     "apollo-link-batch-http": "^1.2.13",
     "apollo-upload-client": "^13.0.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-plugin-import": "^1.13.0",
     "craco": "0.0.3",
     "craco-antd": "^1.14.1",
